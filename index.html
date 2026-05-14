@@ -1,609 +1,553 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Isabela Guerra Nammur | Arte Têxtil</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Isabela Guerra Nammur | Artesanato têxtil de autoria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <style>
-        :root {
-            /* Paleta de Cores Profissional */
-            --bg-color: #FAF8F5;
-            --bg-secondary: #FFFFFF;
-            --text-main: #2C2A28;
-            --text-muted: #6B655F;
-            --accent-color: #A35A3D;
-            --accent-hover: #8A4B31;
-            --border-color: #E8E2DA;
-            --whatsapp: #25D366;
-            --whatsapp-hover: #1EAF54;
-            
-            /* Tipografia */
-            --font-title: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            line-height: 1.4;
+        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* cabeçalho */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0e2d4;
+        }
 
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .header-inner {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
 
-        /* Header */
-        .header {
-            background-color: var(--bg-secondary);
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        .logo h1 {
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            color: #a55d3a;
+            font-weight: 600;
+        }
 
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #8b7a6b;
+        }
 
-        .logo {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-        }
+        .nav a {
+            text-decoration: none;
+            color: #4a3729;
+            margin-left: 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-        .logo h1 {
-            font-family: var(--font-title);
-            font-size: 1.4rem;
-            color: var(--text-main);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        .nav a:first-child {
+            margin-left: 0;
+        }
 
-        .logo span {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
+        .nav a:hover {
+            color: #b45f3b;
+        }
 
-        .nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 32px;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
+        /* HERO - AGORA OCUPA ATÉ O FINAL */
+        .hero {
+            background: #f7efe6;
+            margin: 0;
+            padding: 60px 0;
+            text-align: center;
+            width: 100%;
+        }
 
-        .nav a:hover {
-            color: var(--accent-color);
-        }
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-        /* Hero Section */
-        .hero {
-            background-color: var(--bg-secondary);
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #4e3622;
+        }
 
-        .hero h2 {
-            font-family: var(--font-title);
-            font-size: 3rem;
-            font-weight: 400;
-            color: var(--text-main);
-            margin-bottom: 16px;
-        }
+        .hero p {
+            margin-top: 12px;
+            color: #6b4f34;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
+        /* grade de produtos - agora começa SEM a margem superior grande */
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0 40px;
+        }
 
-        /* Grid de Produtos */
-        .grid-catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 48px;
-            margin: 80px 0;
-        }
+        .card-catalogo {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 28px;
+            background: white;
+            overflow: hidden;
+            border: 1px solid #f1e4d8;
+        }
 
-        .card-catalogo {
-            cursor: pointer;
-            group: card;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-        }
+        .card-catalogo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+        }
 
-        .img-wrapper {
-            overflow: hidden;
-            border-radius: 4px;
-            aspect-ratio: 4 / 5;
-            background: var(--border-color);
-            margin-bottom: 20px;
-        }
+        .img-catalogo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: #ede3d7;
+            display: block;
+        }
 
-        .img-catalogo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        .nome-catalogo {
+            padding: 20px 16px 24px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #3f2d1c;
+        }
 
-        .card-catalogo:hover .img-catalogo {
-            transform: scale(1.05);
-        }
+        /* página de detalhes */
+        .detalhes-page {
+            display: none;
+            padding: 40px 0 60px;
+        }
 
-        .nome-catalogo {
-            font-family: var(--font-title);
-            font-size: 1.4rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
+        .detalhes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 20px;
+        }
 
-        .card-catalogo p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+        .detalhes-imagem {
+            width: 100%;
+            border-radius: 28px;
+            background: #f3e9df;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
 
-        /* Página de Detalhes */
-        .detalhes-page {
-            display: none;
-            padding: 60px 0;
-            background-color: var(--bg-secondary);
-            min-height: calc(100vh - 200px);
-        }
+        .detalhes-info h2 {
+            font-size: 2rem;
+            color: #a45e3a;
+            margin-bottom: 16px;
+        }
 
-        .btn-voltar {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-family: var(--font-body);
-            cursor: pointer;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
+        .detalhes-descricao {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 24px 0;
+            color: #3a2a1d;
+        }
 
-        .btn-voltar:hover {
-            color: var(--text-main);
-        }
+        .detalhes-tecnica {
+            background: #faf2e9;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 24px 0;
+            border-left: 4px solid #cb7b4a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
-        .detalhes-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: start;
-        }
+        /* seletor de variantes */
+        .seletor-variantes {
+            margin: 20px 0;
+            padding: 16px;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #f0e2d4;
+        }
 
-        .detalhes-imagem {
-            width: 100%;
-            border-radius: 4px;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            background: var(--border-color);
-        }
+        .seletor-label {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
 
-        .detalhes-info h2 {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 24px;
-        }
+        .opcoes-variantes {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-        .detalhes-descricao {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-weight: 300;
-        }
+        .opcao-variante {
+            background: #f5ede3;
+            padding: 10px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
 
-        /* Seletor de Variantes Estilo E-commerce */
-        .seletor-variantes {
-            margin-bottom: 40px;
-        }
+        .opcao-variante.selecionada {
+            background: #b5673f;
+            color: white;
+            border-color: #b5673f;
+        }
 
-        .seletor-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            margin-bottom: 16px;
-            display: block;
-        }
+        /* botoes */
+        .botoes-acao {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
 
-        .opcoes-variantes {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .btn-whats-personalizado, .btn-comprar-pronto {
+            flex: 1;
+            text-align: center;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
 
-        .opcao-variante {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: transparent;
-        }
+        .btn-whats-personalizado {
+            background: #25D366;
+            color: white;
+        }
 
-        .opcao-variante:hover {
-            border-color: var(--text-main);
-        }
+        .btn-whats-personalizado:hover {
+            background: #1da152;
+        }
 
-        .opcao-variante.selecionada {
-            border-color: var(--accent-color);
-            background-color: #FAF5F2;
-        }
+        .btn-comprar-pronto {
+            background: #b5673f;
+            color: white;
+        }
 
-        .opcao-nome {
-            font-weight: 500;
-        }
+        .btn-comprar-pronto:hover {
+            background: #8b4a2c;
+        }
 
-        .opcao-preco {
-            color: var(--accent-color);
-            font-weight: 500;
-        }
+        .btn-whats-apenas {
+            width: 100%;
+            text-align: center;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            display: block;
+            transition: background 0.2s;
+        }
 
-        /* Informações Técnicas (Acordeão visual) */
-        .detalhes-tecnica {
-            padding-top: 32px;
-            margin-top: 32px;
-            border-top: 1px solid var(--border-color);
-        }
+        .btn-whats-apenas:hover {
+            background: #1da152;
+        }
 
-        .tecnica-titulo {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 24px;
+            background: none;
+            border: none;
+            color: #a5643f;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
 
-        .tecnica-texto {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
+        .btn-voltar:hover {
+            text-decoration: underline;
+        }
 
-        /* Botões Call to Action */
-        .botoes-acao {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 40px;
-        }
+        /* rodapé */
+        .footer {
+            background: #e8dfd4;
+            margin-top: 0;
+            padding: 40px 0 32px;
+            font-size: 0.85rem;
+            color: #4c3a2a;
+            text-align: center;
+        }
 
-        .btn {
-            width: 100%;
-            padding: 18px 24px;
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
+        .footer a {
+            color: #7b553b;
+            text-decoration: none;
+        }
 
-        .btn-primario {
-            background-color: var(--accent-color);
-            color: white;
-            border: 1px solid var(--accent-color);
-        }
-
-        .btn-primario:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-        }
-
-        .btn-whatsapp {
-            background-color: var(--whatsapp);
-            color: white;
-            border: 1px solid var(--whatsapp);
-        }
-
-        .btn-whatsapp:hover {
-            background-color: var(--whatsapp-hover);
-            border-color: var(--whatsapp-hover);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            padding: 48px 0;
-            text-align: center;
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .detalhes-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .nav {
-                display: none; /* Simplificação para mobile */
-            }
-        }
-    </style>
+        @media (max-width: 750px) {
+            .detalhes-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .botoes-acao {
+                flex-direction: column;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header class="header">
-    <div class="container header-inner">
-        <a href="#" class="logo" id="link-logo">
-            <h1>Isabela Guerra Nammur</h1>
-            <span>Artesanato Têxtil</span>
-        </a>
-        <nav class="nav">
-            <a href="#" id="link-home">Acervo</a>
-            <a href="#">Processo</a>
-        </nav>
-    </div>
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>✨ Isabela Guerra Nammur</h1>
+            <p>Artesanato têxtil de autoria</p>
+        </div>
+        <div class="nav">
+            <a href="#" id="link-home">Início</a>
+            <a href="#">Sobre</a>
+        </div>
+    </div>
 </header>
 
 <main>
-    <div id="home-page">
-        <section class="hero">
-            <div class="container">
-                <h2>Memórias tecidas à mão</h2>
-                <p>Arte têxtil autoral focada na materialização de fotografias e criação de peças decorativas únicas através da técnica de feltragem.</p>
-            </div>
-        </section>
-        
-        <section class="container">
-            <div id="catalogo-grid" class="grid-catalogo"></div>
-        </section>
-    </div>
+    <div id="home-page">
+        <!-- Faixa terracota que vai até o final da largura da página -->
+        <div class="hero">
+            <div class="container">
+                <h2>Artesanato que guarda sentimentos</h2>
+                <p>Cada peça carrega uma história, uma técnica e a vontade de transformar o ordinário.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div id="catalogo-grid" class="grid-catalogo"></div>
+        </div>
+    </div>
 
-    <div id="detalhes-page" class="detalhes-page">
-        <div class="container">
-            <button class="btn-voltar" id="btn-voltar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Voltar ao Acervo
-            </button>
-            <div id="conteudo-detalhes"></div>
-        </div>
-    </div>
+    <div id="detalhes-page" class="detalhes-page">
+        <div class="container">
+            <button class="btn-voltar" id="btn-voltar">← Voltar para o acervo</button>
+            <div id="conteudo-detalhes"></div>
+        </div>
+    </div>
 </main>
 
 <footer class="footer">
-    <div class="container">
-        <p>Acompanhe o processo criativo no Instagram <strong>@isaguenam</strong></p>
-        <p>Ateliê localizado em Praia Grande, SP</p>
-    </div>
+    <div class="container">
+        <p>📷 Acompanhe o processo criativo no Instagram @isaguenam</p>
+        <p>💬 Encomendas via WhatsApp | Peças únicas e personalizadas</p>
+    </div>
 </footer>
 
 <script>
-    // Dados estruturados. Imagens substituídas por placeholders arquitetônicos/têxteis para preview do template.
-    const produtos = [
-        {
-            id: 1,
-            nome: "Reprodução de Fotografia",
-            resumo: "Eternização de memórias em arte têxtil",
-            descricao: "Transformamos fotografias marcantes em peças artesanais exclusivas, traduzindo afeto e memórias em texturas e cores. Uma forma delicada e tangível de manter a essência de suas melhores lembranças sempre presente.",
-            tecnica: "Reprodução têxtil por abstração de imagem fotográfica. A execução utiliza feltragem com agulha (needle felting) sobre substrato de algodão cru. Fibras de lã são compactadas para formar silhuetas e blocos de cor correspondentes à fotografia original.",
-            apenasPersonalizado: true,
-            imagemExemplo: "https://images.unsplash.com/photo-1584878438137-024225b1129b?auto=format&fit=crop&w=800&q=80",
-            variantes: [
-                { nome: "Formato P (15x15 cm)", preco: "R$ 120,00" },
-                { nome: "Formato M (20x20 cm)", preco: "R$ 180,00" },
-                { nome: "Formato G (25x25 cm)", preco: "R$ 250,00" }
-            ]
-        },
-        {
-            id: 2,
-            nome: "Bastidores Decorativos",
-            resumo: "Peças lúdicas para ambientes infantis",
-            descricao: "Nossos bastidores unem a delicadeza do trabalho manual com temas lúdicos e encantadores. Obras artesanais exclusivas pensadas para criar uma atmosfera de serenidade e ternura, adicionando personalidade ao ambiente.",
-            tecnica: "Arte têxtil estruturada em bastidor de tensão concêntrico. Composição primária em feltragem com agulha sobre tecido plano para criação de relevo e preenchimento. Composição secundária com técnicas mistas, incluindo bordado livre para elementos lineares precisos.",
-            apenasPersonalizado: false,
-            variantes: [
-                { nome: "Bastidor 12cm - Flores", imagem: "https://images.unsplash.com/photo-1605330386221-39665bc839d4?auto=format&fit=crop&w=800&q=80", preco: "R$ 85,00" },
-                { nome: "Bastidor 12cm - Animais", imagem: "https://images.unsplash.com/photo-1620619864275-c941785f818b?auto=format&fit=crop&w=800&q=80", preco: "R$ 85,00" },
-                { nome: "Bastidor 15cm - Estrelado", imagem: "https://images.unsplash.com/photo-1590118314115-b040e5ecda15?auto=format&fit=crop&w=800&q=80", preco: "R$ 110,00" }
-            ]
-        },
-        {
-            id: 3,
-            nome: "Escultura Tridimensional",
-            resumo: "Figuras decorativas estruturadas em lã",
-            descricao: "Esta figura decorativa é esculpida em lã com transição de cores vibrantes e traços suaves, criando uma peça que transmite paz e encantamento. Uma presença lúdica, perfeita para inspirar a imaginação.",
-            tecnica: "Escultura têxtil tridimensional autônoma. Executada por meio de feltragem a seco (needle felting) para compactação mecânica de fibras de lã natural. Modelagem com omissão intencional de traços faciais visando neutralidade expressiva.",
-            apenasPersonalizado: false,
-            imagemExemplo: "https://images.unsplash.com/photo-1610444390022-d04b61b369c0?auto=format&fit=crop&w=800&q=80",
-            variantes: [
-                { nome: "Fada da Natureza (12cm)", preco: "R$ 160,00" },
-                { nome: "Duende do Bosque (18cm)", preco: "R$ 240,00" },
-                { nome: "Guardiã dos Sonhos (25cm)", preco: "R$ 340,00" }
-            ]
-        }
-    ];
+    // ==============================================
+    // PRODUTOS COM AS IMAGENS FORNECIDAS
+    // ==============================================
+    const produtos = [
+        {
+            id: 1,
+            nome: "Reprodução de Fotografia",
+            descricao: "Eternize seus momentos mais importantes. Transformamos fotografias marcantes em peças artesanais exclusivas, traduzindo afeto e memórias em texturas e cores. Uma forma delicada e tangível de manter a essência de suas melhores lembranças sempre presente.",
+            tecnica: "Técnica: Reprodução têxtil por abstração de imagem fotográfica. A execução utiliza feltragem com agulha (needle felting) sobre substrato de algodão cru. Fibras de lã são compactadas para formar silhuetas e blocos de cor correspondentes à fotografia original. Há omissão de traços faciais, priorizando a geometria corporal e o posicionamento espacial para reconhecimento da cena.",
+            apenasPersonalizado: true,
+            imagemExemplo: "https://i.imgur.com/06tCO1P.jpeg",
+            variantes: [
+                { nome: "Formato 15x15 cm", preco: "R$ 120,00" },
+                { nome: "Formato 20x20 cm", preco: "R$ 180,00" },
+                { nome: "Formato 25x25 cm", preco: "R$ 250,00" }
+            ]
+        },
+        {
+            id: 2,
+            nome: "Bastidores Decorativos Lúdicos",
+            descricao: "Decore com afeto e imaginação. Nossos bastidores unem a delicadeza do trabalho manual com temas lúdicos e encantadores. Obras artesanais exclusivas pensadas para criar uma atmosfera de serenidade e ternura, adicionando personalidade e o calor do trabalho feito à mão ao ambiente.",
+            tecnica: "Técnica: Arte têxtil estruturada em bastidor de tensão concêntrico (madeira/bambu). Composição primária em feltragem com agulha sobre tecido plano (algodão cru ou padrão impresso) para criação de relevo e preenchimento. Composição secundária com técnicas mistas: bordado livre para elementos lineares precisos, aplicação de pedrarias e fixação de aviamentos externos (renda). O bastidor atua como tensionador mecânico durante a confecção e como moldura na peça finalizada.",
+            apenasPersonalizado: false,
+            variantes: [
+                { nome: "Bastidor 12cm - Tema Flores", imagem: "https://i.imgur.com/seo49lH.jpeg", preco: "R$ 85,00" },
+                { nome: "Bastidor 12cm - Tema Animais", imagem: "https://i.imgur.com/bsLXrLp.jpeg", preco: "R$ 85,00" },
+                { nome: "Bastidor 15cm - Céu Estrelado", imagem: "https://i.imgur.com/X0zHUVH.jpeg", preco: "R$ 110,00" }
+            ]
+        },
+        {
+            id: 3,
+            nome: "Escultura Têxtil Tridimensional",
+            descricao: "Traga a magia e a delicadeza do trabalho manual para o seu espaço. Esta figura decorativa é esculpida em lã com uma transição de cores vibrantes e traços suaves, criando uma peça que transmite paz e encantamento. Uma presença lúdica e acolhedora, perfeita para inspirar a imaginação e adicionar um toque de poesia a qualquer ambiente.",
+            tecnica: "Técnica: Escultura têxtil tridimensional autónoma. A execução recorre primariamente à técnica de feltragem a seco (needle felting) para a compactação mecânica de fibras de lã natural. O corpo central apresenta uma mescla cromática de fibras (laranja, amarelo e verde-água) com um grau de compactação intermédio, preservando a textura felpuda e orgânica do material. As asas e o cabelo são compostos por mechas de lã penteada (roving) com fixação pontual e baixo nível de fricção.",
+            apenasPersonalizado: false,
+            imagemExemplo: "https://i.imgur.com/x5uXMpr.jpeg",
+            variantes: [
+                { nome: "Pequena (12cm) - Fada da Natureza", preco: "R$ 160,00" },
+                { nome: "Média (18cm) - Duende do Bosque", preco: "R$ 240,00" },
+                { nome: "Grande (25cm) - Guardiã dos Sonhos", preco: "R$ 340,00" }
+            ]
+        }
+    ];
 
-    let produtoAtivo = null;
-    let varianteSelecionadaIndex = 0;
+    let produtoAtivo = null;
+    let varianteSelecionadaIndex = 0;
 
-    function getImagemParaVariante(produto, index) {
-        if (produto.id === 2) {
-            return produto.variantes[index].imagem;
-        }
-        return produto.imagemExemplo;
-    }
+    function getImagemParaVariante(produto, index) {
+        if (produto.id === 2) {
+            return produto.variantes[index].imagem;
+        }
+        return produto.imagemExemplo;
+    }
 
-    function renderCatalogo() {
-        const grid = document.getElementById('catalogo-grid');
-        grid.innerHTML = '';
-        produtos.forEach(prod => {
-            const card = document.createElement('div');
-            card.className = 'card-catalogo';
-            
-            const urlImagem = prod.id === 2 ? prod.variantes[0].imagem : prod.imagemExemplo;
-            
-            card.innerHTML = `
-                <div class="img-wrapper">
-                    <img src="${urlImagem}" alt="${prod.nome}" class="img-catalogo">
-                </div>
-                <div class="nome-catalogo">${prod.nome}</div>
-                <p>${prod.resumo}</p>
-            `;
-            
-            card.addEventListener('click', () => abrirDetalhes(prod.id));
-            grid.appendChild(card);
-        });
-    }
+    function renderCatalogo() {
+        const grid = document.getElementById('catalogo-grid');
+        grid.innerHTML = '';
+        produtos.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'card-catalogo';
+            
+            const img = document.createElement('img');
+            if (prod.id === 2) {
+                img.src = prod.variantes[0].imagem;
+            } else {
+                img.src = prod.imagemExemplo;
+            }
+            img.alt = prod.nome;
+            img.className = 'img-catalogo';
+            
+            const nomeDiv = document.createElement('div');
+            nomeDiv.className = 'nome-catalogo';
+            nomeDiv.innerText = prod.nome;
+            
+            card.appendChild(img);
+            card.appendChild(nomeDiv);
+            card.addEventListener('click', () => abrirDetalhes(prod.id));
+            grid.appendChild(card);
+        });
+    }
 
-    function abrirDetalhes(id) {
-        produtoAtivo = produtos.find(p => p.id === id);
-        varianteSelecionadaIndex = 0;
-        renderizarDetalhes();
-        document.getElementById('home-page').style.display = 'none';
-        document.getElementById('detalhes-page').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'auto' });
-    }
+    function abrirDetalhes(id) {
+        produtoAtivo = produtos.find(p => p.id === id);
+        varianteSelecionadaIndex = 0;
+        renderizarDetalhes();
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('detalhes-page').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    function renderizarDetalhes() {
-        const container = document.getElementById('conteudo-detalhes');
-        const produto = produtoAtivo;
-        const varianteAtual = produto.variantes[varianteSelecionadaIndex];
-        const apenasPersonalizado = produto.apenasPersonalizado;
-        const imagemUrl = getImagemParaVariante(produto, varianteSelecionadaIndex);
+    function renderizarDetalhes() {
+        const container = document.getElementById('conteudo-detalhes');
+        const produto = produtoAtivo;
+        const varianteAtual = produto.variantes[varianteSelecionadaIndex];
+        const apenasPersonalizado = produto.apenasPersonalizado === true;
+        const imagemUrl = getImagemParaVariante(produto, varianteSelecionadaIndex);
 
-        container.innerHTML = `
-            <div class="detalhes-grid">
-                <div>
-                    <img src="${imagemUrl}" class="detalhes-imagem" alt="${produto.nome}">
-                </div>
-                <div class="detalhes-info">
-                    <h2>${produto.nome}</h2>
-                    <div class="detalhes-descricao">${produto.descricao}</div>
-                    
-                    <div class="seletor-variantes">
-                        <span class="seletor-label">${apenasPersonalizado ? 'Selecione o formato' : 'Opções disponíveis'}</span>
-                        <div class="opcoes-variantes">
-                            ${produto.variantes.map((v, idx) => `
-                                <div class="opcao-variante ${idx === varianteSelecionadaIndex ? 'selecionada' : ''}" data-idx="${idx}">
-                                    <span class="opcao-nome">${v.nome}</span>
-                                    <span class="opcao-preco">${v.preco}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
+        container.innerHTML = `
+            <div class="detalhes-grid">
+                <div>
+                    <img src="${imagemUrl}" class="detalhes-imagem" id="imagem-principal" alt="${varianteAtual.nome}">
+                </div>
+                <div class="detalhes-info">
+                    <h2>${produto.nome}</h2>
+                    <div class="detalhes-descricao">${produto.descricao}</div>
+                    <div class="detalhes-tecnica">🧵 ${produto.tecnica}</div>
+                    
+                    <div class="seletor-variantes">
+                        <div class="seletor-label">🎨 ${apenasPersonalizado ? 'Escolha o formato desejado:' : 'Escolha uma opção disponível:'}</div>
+                        <div class="opcoes-variantes" id="opcoes-variantes">
+                            ${produto.variantes.map((v, idx) => `
+                                <div class="opcao-variante ${idx === varianteSelecionadaIndex ? 'selecionada' : ''}" data-idx="${idx}">
+                                    ${v.nome} - ${v.preco}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="botoes-acao" id="area-botoes">
+                        ${gerarBotoes(produto, varianteAtual, apenasPersonalizado)}
+                    </div>
+                </div>
+            </div>
+        `;
 
-                    <div class="botoes-acao">
-                        ${gerarBotoes(produto, varianteAtual, apenasPersonalizado)}
-                    </div>
+        const opcoes = document.querySelectorAll('.opcao-variante');
+        opcoes.forEach(op => {
+            op.addEventListener('click', (e) => {
+                const idx = parseInt(op.dataset.idx);
+                varianteSelecionadaIndex = idx;
+                renderizarDetalhes();
+            });
+        });
 
-                    <div class="detalhes-tecnica">
-                        <div class="tecnica-titulo">Especificações Técnicas</div>
-                        <div class="tecnica-texto">${produto.tecnica}</div>
-                    </div>
-                </div>
-            </div>
-        `;
+        const telefone = "5531999999999";
+        const varianteSelecionada = produto.variantes[varianteSelecionadaIndex];
+        
+        const btnPersonalizado = document.getElementById('btn-personalizado');
+        if (btnPersonalizado) {
+            btnPersonalizado.onclick = (e) => {
+                e.preventDefault();
+                let mensagem = "";
+                if (apenasPersonalizado) {
+                    mensagem = `Olá! Gostaria de encomendar uma REPRODUÇÃO DE FOTOGRAFIA no formato ${varianteSelecionada.nome} (${varianteSelecionada.preco}). Podemos conversar sobre o envio da imagem e o prazo?`;
+                } else {
+                    mensagem = `Olá! Me encantei com a técnica *${produto.nome}*. Gostaria de encomendar uma peça PERSONALIZADA (${produto.tecnica.substring(0, 120)}...). Podemos conversar sobre prazos e possibilidades?`;
+                }
+                window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            };
+        }
+        
+        const btnPronto = document.getElementById('btn-pronto');
+        if (btnPronto) {
+            btnPronto.onclick = (e) => {
+                e.preventDefault();
+                const mensagem = `Olá! Tenho interesse em adquirir a peça que está pronta: *${varianteSelecionada.nome}* - ${varianteSelecionada.preco}. Está disponível?`;
+                window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            };
+        }
+    }
+    
+    function gerarBotoes(produto, varianteAtual, apenasPersonalizado) {
+        if (apenasPersonalizado) {
+            return `
+                <a href="#" class="btn-whats-apenas" id="btn-personalizado">
+                    💬 Quero encomendar esta peça com minha própria foto
+                </a>
+            `;
+        } else {
+            return `
+                <a href="#" class="btn-whats-personalizado" id="btn-personalizado">💬 Quero encomendar uma peça única (personalizada)</a>
+                <a href="#" class="btn-comprar-pronto" id="btn-pronto">🛒 Adquirir esta peça pronta (${varianteAtual.preco})</a>
+            `;
+        }
+    }
 
-        // Eventos dos seletores
-        document.querySelectorAll('.opcao-variante').forEach(op => {
-            op.addEventListener('click', function() {
-                varianteSelecionadaIndex = parseInt(this.dataset.idx);
-                renderizarDetalhes();
-            });
-        });
+    function voltarParaHome() {
+        document.getElementById('home-page').style.display = 'block';
+        document.getElementById('detalhes-page').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-        // Eventos dos botões WhatsApp
-        const telefone = "5513999999999"; // Código de área de Praia Grande/SP ajustado
-        const configBtn = (id, msgFunction) => {
-            const btn = document.getElementById(id);
-            if(btn) {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(msgFunction())}`, '_blank');
-                });
-            }
-        };
+    document.getElementById('btn-voltar').addEventListener('click', voltarParaHome);
+    document.getElementById('link-home').addEventListener('click', (e) => {
+        e.preventDefault();
+        voltarParaHome();
+    });
 
-        configBtn('btn-personalizado', () => {
-            if (apenasPersonalizado) {
-                return `Olá! Gostaria de encomendar uma reprodução no formato ${varianteAtual.nome} (${varianteAtual.preco}).`;
-            }
-            return `Olá! Gostaria de encomendar uma peça personalizada baseada no modelo ${produto.nome}.`;
-        });
-
-        configBtn('btn-pronto', () => {
-            return `Olá! Tenho interesse em adquirir a peça pronta: ${varianteAtual.nome} - ${varianteAtual.preco}.`;
-        });
-    }
-
-    function gerarBotoes(produto, varianteAtual, apenasPersonalizado) {
-        const iconeWhatsapp = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`;
-        
-        if (apenasPersonalizado) {
-            return `<a href="#" class="btn btn-primario" id="btn-personalizado">Solicitar Encomenda</a>`;
-        } else {
-            return `
-                <a href="#" class="btn btn-primario" id="btn-pronto">Adquirir Peça Pronta (${varianteAtual.preco})</a>
-                <a href="#" class="btn btn-whatsapp" id="btn-personalizado">${iconeWhatsapp} Atendimento para Encomenda</a>
-            `;
-        }
-    }
-
-    function voltarParaHome() {
-        document.getElementById('home-page').style.display = 'block';
-        document.getElementById('detalhes-page').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-
-    document.getElementById('btn-voltar').addEventListener('click', voltarParaHome);
-    document.getElementById('link-home').addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
-    document.getElementById('link-logo').addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
-
-    // Inicialização
-    renderCatalogo();
+    renderCatalogo();
 </script>
 </body>
 </html>
