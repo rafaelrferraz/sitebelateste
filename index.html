@@ -1,240 +1,364 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isabela Guerra Nammur | Artesanato têxtil de autoria</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --cream: #faf7f3;
-      --warm-white: #ffffff;
-      --terracotta: #9c4f2e;
-      --terracotta-light: #c06a45;
-      --terracotta-deep: #6b3520;
-      --sand: #e8ddd3;
-      --sand-light: #f3ede6;
-      --text-dark: #1e1410;
-      --text-mid: #5a3d2b;
-      --text-muted: #917060;
-      --whatsapp: #25D366;
-    }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--cream); color: var(--text-dark); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Isabela Guerra Nammur | Arte Têxtil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-    /* NAV */
-    nav {
-      background: var(--warm-white);
-      border-bottom: 1px solid var(--sand);
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .nav-brand { display: flex; align-items: center; gap: 12px; }
-    .nav-monogram {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--terracotta);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 500; color: white; letter-spacing: 0.5px;
-    }
-    .nav-name { font-size: 15px; font-weight: 500; color: var(--text-dark); }
-    .nav-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 24px; }
-    .nav-link {
-      font-size: 13px; color: var(--text-mid); cursor: pointer;
-      padding: 4px 0; border-bottom: 1.5px solid transparent;
-      transition: all 0.15s;
-    }
-    .nav-link:hover, .nav-link.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+    <style>
+        :root {
+            /* Paleta de Cores Profissional */
+            --bg-color: #FAF8F5;
+            --bg-secondary: #FFFFFF;
+            --text-main: #2C2A28;
+            --text-muted: #6B655F;
+            --accent-color: #A35A3D;
+            --accent-hover: #8A4B31;
+            --border-color: #E8E2DA;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1EAF54;
+            
+            /* Tipografia */
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(to bottom, #f7efe6 0%, var(--cream) 100%);
-      padding: 64px 32px 56px;
-      text-align: center;
-      border-bottom: 1px solid var(--sand);
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--terracotta); font-weight: 500; margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: 34px; font-weight: 400; color: var(--text-dark);
-      line-height: 1.25; margin-bottom: 16px;
-      font-style: italic;
-    }
-    .hero p {
-      font-size: 15px; color: var(--text-muted); max-width: 440px;
-      margin: 0 auto 32px; line-height: 1.7;
-    }
-    .hero-divider {
-      display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 8px;
-    }
-    .hero-divider span { width: 48px; height: 1px; background: var(--sand); display: block; }
-    .hero-divider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); display: block; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* SECTION HEADER */
-    .section-header {
-      padding: 40px 32px 24px;
-      display: flex; align-items: baseline; justify-content: space-between;
-    }
-    .section-header h2 { font-size: 16px; font-weight: 500; color: var(--text-dark); }
-    .section-count { font-size: 12px; color: var(--text-muted); }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* GRID */
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-      padding: 0 32px 64px;
-    }
-    .product-card {
-      background: var(--warm-white);
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      border: 1px solid var(--sand);
-      border-radius: 12px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .product-card:hover { box-shadow: 0 8px 32px rgba(100,50,20,0.1); transform: translateY(-2px); }
-    .product-img {
-      width: 100%; aspect-ratio: 1;
-      object-fit: cover;
-      background: var(--sand-light);
-      display: block;
-      transition: opacity 0.2s;
-    }
-    .product-card:hover .product-img { opacity: 0.95; }
-    .product-info { padding: 16px 16px 18px; }
-    .product-tag {
-      font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
-      color: var(--terracotta); margin-bottom: 6px;
-    }
-    .product-name { font-size: 14px; font-weight: 500; color: var(--text-dark); line-height: 1.3; }
-    .product-price-hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-    .product-arrow {
-      position: absolute; top: 12px; right: 12px;
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--warm-white);
-      border: 1px solid var(--sand);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: var(--terracotta);
-      opacity: 0; transition: opacity 0.15s;
-    }
-    .product-card:hover .product-arrow { opacity: 1; }
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* DETAIL PAGE */
-    .detail-page { display: none; }
-    .detail-topbar {
-      background: var(--warm-white);
-      border-bottom: 1px solid var(--sand);
-      padding: 14px 32px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .back-btn {
-      font-size: 13px; color: var(--terracotta); cursor: pointer;
-      display: flex; align-items: center; gap: 6px;
-      background: none; border: none; font-family: inherit;
-    }
-    .back-btn:hover { color: var(--terracotta-deep); }
-    .breadcrumb-sep { font-size: 13px; color: var(--sand); }
-    .breadcrumb-current { font-size: 13px; color: var(--text-muted); }
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .detail-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 70vh;
-    }
-    .detail-gallery {
-      background: var(--sand-light);
-      padding: 40px;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .detail-main-img {
-      width: 100%; aspect-ratio: 1;
-      object-fit: cover; border-radius: 12px;
-      background: var(--sand);
-    }
-    .detail-thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
-    .thumb {
-      width: 52px; height: 52px; border-radius: 6px;
-      object-fit: cover; cursor: pointer;
-      border: 2px solid transparent;
-      background: var(--sand);
-      transition: border-color 0.15s;
-    }
-    .thumb.active { border-color: var(--terracotta); }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .detail-info {
-      padding: 40px;
-      background: var(--warm-white);
-      display: flex; flex-direction: column; gap: 0;
-      overflow-y: auto;
-    }
-    .detail-label {
-      font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
-      color: var(--terracotta); margin-bottom: 10px;
-    }
-    .detail-title { font-size: 26px; font-weight: 400; font-style: italic; color: var(--text-dark); margin-bottom: 20px; line-height: 1.2; }
-    .detail-desc { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin-bottom: 24px; }
-    .detail-divider { height: 1px; background: var(--sand); margin: 20px 0; }
+        .logo {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .technique-block {
-      background: var(--sand-light);
-      border-radius: 8px;
-      padding: 16px 18px;
-      margin-bottom: 24px;
-    }
-    .technique-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--terracotta); margin-bottom: 6px; }
-    .technique-text { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+        .logo h1 {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
 
-    .variants-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
-    .variants-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
-    .variant-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; border-radius: 8px;
-      border: 1px solid var(--sand); cursor: pointer;
-      transition: all 0.15s; background: var(--warm-white);
-    }
-    .variant-row:hover { border-color: var(--terracotta-light); }
-    .variant-row.selected { border-color: var(--terracotta); background: #fdf4ee; }
-    .variant-name { font-size: 13px; color: var(--text-dark); }
-    .variant-price { font-size: 13px; font-weight: 500; color: var(--terracotta); }
-    .variant-check { font-size: 14px; color: var(--terracotta); opacity: 0; transition: opacity 0.15s; }
-    .variant-row.selected .variant-check { opacity: 1; }
+        .logo span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
 
-    .actions { display: flex; flex-direction: column; gap: 10px; }
-    .btn {
-      padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 500;
-      cursor: pointer; border: none; font-family: inherit;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      text-decoration: none; transition: all 0.15s;
-    }
-    .btn-primary { background: var(--terracotta); color: white; }
-    .btn-primary:hover { background: var(--terracotta-deep); }
-    .btn-whatsapp { background: #f0faf5; color: #1a7a40; border: 1px solid #b2dfc5; }
-    .btn-whatsapp:hover { background: #e0f5ea; }
-    .btn-whatsapp-main { background: var(--whatsapp); color: white; }
-    .btn-whatsapp-main:hover { background: #1db954; }
+        .nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 32px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
 
-    /* FOOTER */
-    footer {
-      background: var(--warm-white);
-      border-top: 1px solid var(--sand);
-      padding: 32px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .footer-brand .f-name { font-size: 14px; font-weight: 500; color: var(--text-dark); }
-    .footer-brand .f-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-link { font-size: 12px; color: var(--text-muted); cursor: pointer; }
-    .footer-link:hover { color: var(--terracotta); }
+        .nav a:hover {
+            color: var(--accent-color);
+        }
 
-    /* RESPONSIVE */
-    /* Responsividade */
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg-secondary);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h2 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Grid de Produtos */
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 48px;
+            margin: 80px 0;
+        }
+
+        .card-catalogo {
+            cursor: pointer;
+            group: card;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img-wrapper {
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4 / 5;
+            background: var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .img-catalogo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-catalogo:hover .img-catalogo {
+            transform: scale(1.05);
+        }
+
+        .nome-catalogo {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .card-catalogo p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Página de Detalhes */
+        .detalhes-page {
+            display: none;
+            padding: 60px 0;
+            background-color: var(--bg-secondary);
+            min-height: calc(100vh - 200px);
+        }
+
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            color: var(--text-main);
+        }
+
+        .detalhes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .detalhes-imagem {
+            width: 100%;
+            border-radius: 4px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            background: var(--border-color);
+        }
+
+        .detalhes-info h2 {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .detalhes-descricao {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        /* Seletor de Variantes Estilo E-commerce */
+        .seletor-variantes {
+            margin-bottom: 40px;
+        }
+
+        .seletor-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .opcoes-variantes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opcao-variante {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: transparent;
+        }
+
+        .opcao-variante:hover {
+            border-color: var(--text-main);
+        }
+
+        .opcao-variante.selecionada {
+            border-color: var(--accent-color);
+            background-color: #FAF5F2;
+        }
+
+        .opcao-nome {
+            font-weight: 500;
+        }
+
+        .opcao-preco {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Informações Técnicas (Acordeão visual) */
+        .detalhes-tecnica {
+            padding-top: 32px;
+            margin-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tecnica-titulo {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .tecnica-texto {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Botões Call to Action */
+        .botoes-acao {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primario {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            border: 1px solid var(--whatsapp);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            border-color: var(--whatsapp-hover);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Responsividade */
         @media (max-width: 768px) {
             .detalhes-grid {
                 grid-template-columns: 1fr;
@@ -244,240 +368,242 @@
                 font-size: 2.2rem;
             }
             .nav {
-                display: none;
-            }
-            /* Regras adicionadas para corrigir o logo no mobile */
-            .logo h1 {
-                font-size: 1.15rem;
-                line-height: 1.2;
-            }
-            .logo span {
-                font-size: 0.65rem;
+                display: none; /* Simplificação para mobile */
             }
         }
-  </style>
+    </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-brand">
-    <div class="nav-monogram">IGN</div>
-    <div>
-      <div class="nav-name">Isabela Guerra Nammur</div>
-      <div class="nav-sub">Artesanato têxtil de autoria</div>
+<header class="header">
+    <div class="container header-inner">
+        <a href="#" class="logo" id="link-logo">
+            <h1>Isabela Guerra Nammur</h1>
+            <span>Artesanato Têxtil</span>
+        </a>
+        <nav class="nav">
+            <a href="#" id="link-home">Acervo</a>
+            <a href="#">Processo</a>
+        </nav>
     </div>
-  </div>
-  <div class="nav-links">
-    <span class="nav-link active" onclick="showHome()">Acervo</span>
-    <span class="nav-link">Sobre</span>
-    <span class="nav-link">Contato</span>
-  </div>
-</nav>
+</header>
 
-<div id="home-page">
-  <div class="hero">
-    <div class="hero-eyebrow">Peças únicas feitas à mão</div>
-    <h1>Artesanato que<br>guarda sentimentos</h1>
-    <p>Cada peça carrega uma técnica, uma história e a vontade de transformar o ordinário.</p>
-    <div class="hero-divider">
-      <span></span>
-      <span class="hero-divider-dot"></span>
-      <span></span>
+<main>
+    <div id="home-page">
+        <section class="hero">
+            <div class="container">
+                <h2>Memórias tecidas à mão</h2>
+                <p>Arte têxtil autoral focada na materialização de fotografias e criação de peças decorativas únicas através da técnica de feltragem.</p>
+            </div>
+        </section>
+        
+        <section class="container">
+            <div id="catalogo-grid" class="grid-catalogo"></div>
+        </section>
     </div>
-  </div>
 
-  <div class="section-header">
-    <h2>Acervo</h2>
-    <span class="section-count">3 categorias</span>
-  </div>
-
-  <div class="catalog-grid" id="catalog-grid"></div>
-</div>
-
-<div class="detail-page" id="detail-page">
-  <div class="detail-topbar">
-    <button class="back-btn" onclick="showHome()">&#8592; Acervo</button>
-    <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current" id="breadcrumb-name"></span>
-  </div>
-  <div class="detail-layout">
-    <div class="detail-gallery">
-      <img class="detail-main-img" id="detail-main-img" src="" alt="">
-      <div class="detail-thumbs" id="detail-thumbs"></div>
+    <div id="detalhes-page" class="detalhes-page">
+        <div class="container">
+            <button class="btn-voltar" id="btn-voltar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Voltar ao Acervo
+            </button>
+            <div id="conteudo-detalhes"></div>
+        </div>
     </div>
-    <div class="detail-info" id="detail-info"></div>
-  </div>
-</div>
+</main>
 
-<footer>
-  <div class="footer-brand">
-    <div class="f-name">Isabela Guerra Nammur</div>
-    <div class="f-sub">@isaguenam &middot; Encomendas via WhatsApp</div>
-  </div>
-  <div class="footer-links">
-    <span class="footer-link">Instagram</span>
-    <span class="footer-link">WhatsApp</span>
-  </div>
+<footer class="footer">
+    <div class="container">
+        <p>Acompanhe o processo criativo no Instagram <strong>@isaguenam</strong></p>
+        <p>Ateliê localizado em Praia Grande, SP</p>
+    </div>
 </footer>
 
 <script>
-  const produtos = [
-    {
-      id: 1,
-      tag: "Encomenda personalizada",
-      nome: "Reprodução de fotografia",
-      descricao: "Eternize seus momentos mais importantes. Transformamos fotografias marcantes em peças artesanais exclusivas, traduzindo afeto e memórias em texturas e cores. Uma forma delicada e tangível de manter a essência de suas melhores lembranças sempre presente.",
-      tecnica: "Feltragem com agulha (needle felting) sobre substrato de algodão cru. Fibras de lã são compactadas para formar silhuetas e blocos de cor correspondentes à fotografia original. Há omissão de traços faciais, priorizando geometria corporal e posicionamento espacial.",
-      apenasPersonalizado: true,
-      imagens: ["https://i.imgur.com/06tCO1P.jpeg"],
-      variantes: [
-        { nome: "Formato 15×15 cm", preco: "R$ 120" },
-        { nome: "Formato 20×20 cm", preco: "R$ 180" },
-        { nome: "Formato 25×25 cm", preco: "R$ 250" }
-      ]
-    },
-    {
-      id: 2,
-      tag: "Pronta entrega · Encomenda",
-      nome: "Bastidores decorativos lúdicos",
-      descricao: "Decore com afeto e imaginação. Nossos bastidores unem a delicadeza do trabalho manual com temas lúdicos e encantadores. Obras artesanais exclusivas pensadas para criar uma atmosfera de serenidade e ternura.",
-      tecnica: "Arte têxtil estruturada em bastidor de tensão concêntrico. Composição primária em feltragem com agulha sobre tecido plano para criação de relevo, com bordado livre para elementos lineares e aplicação de pedrarias e aviamentos.",
-      apenasPersonalizado: false,
-      imagens: [
-        "https://i.imgur.com/seo49lH.jpeg",
-        "https://i.imgur.com/bsLXrLp.jpeg",
-        "https://i.imgur.com/X0zHUVH.jpeg"
-      ],
-      variantes: [
-        { nome: "12 cm — Tema flores", preco: "R$ 85", imgIdx: 0 },
-        { nome: "12 cm — Tema animais", preco: "R$ 85", imgIdx: 1 },
-        { nome: "15 cm — Céu estrelado", preco: "R$ 110", imgIdx: 2 }
-      ]
-    },
-    {
-      id: 3,
-      tag: "Pronta entrega · Encomenda",
-      nome: "Escultura têxtil tridimensional",
-      descricao: "Traga a magia e a delicadeza do trabalho manual para o seu espaço. Esta figura decorativa é esculpida em lã com transição de cores vibrantes e traços suaves, criando uma peça que transmite paz e encantamento.",
-      tecnica: "Escultura tridimensional autônoma por feltragem a seco (needle felting). O corpo apresenta mescla cromática de fibras com grau de compactação intermédio. Asas e cabelo são compostos por mechas de lã penteada (roving) com fixação pontual.",
-      apenasPersonalizado: false,
-      imagens: ["https://i.imgur.com/x5uXMpr.jpeg"],
-      variantes: [
-        { nome: "Pequena — 12 cm", preco: "R$ 160" },
-        { nome: "Média — 18 cm", preco: "R$ 240" },
-        { nome: "Grande — 25 cm", preco: "R$ 340" }
-      ]
-    }
-  ];
+    // Dados estruturados. Imagens substituídas por placeholders arquitetônicos/têxteis para preview do template.
+    const produtos = [
+        {
+            id: 1,
+            nome: "Reprodução de Fotografia",
+            resumo: "Eternização de memórias em arte têxtil",
+            descricao: "Transformamos fotografias marcantes em peças artesanais exclusivas, traduzindo afeto e memórias em texturas e cores. Uma forma delicada e tangível de manter a essência de suas melhores lembranças sempre presente.",
+            tecnica: "Reprodução têxtil por abstração de imagem fotográfica. A execução utiliza feltragem com agulha (needle felting) sobre substrato de algodão cru. Fibras de lã são compactadas para formar silhuetas e blocos de cor correspondentes à fotografia original.",
+            apenasPersonalizado: true,
+            imagemExemplo: "https://images.unsplash.com/photo-1584878438137-024225b1129b?auto=format&fit=crop&w=800&q=80",
+            variantes: [
+                { nome: "Formato P (15x15 cm)", preco: "R$ 120,00" },
+                { nome: "Formato M (20x20 cm)", preco: "R$ 180,00" },
+                { nome: "Formato G (25x25 cm)", preco: "R$ 250,00" }
+            ]
+        },
+        {
+            id: 2,
+            nome: "Bastidores Decorativos",
+            resumo: "Peças lúdicas para ambientes infantis",
+            descricao: "Nossos bastidores unem a delicadeza do trabalho manual com temas lúdicos e encantadores. Obras artesanais exclusivas pensadas para criar uma atmosfera de serenidade e ternura, adicionando personalidade ao ambiente.",
+            tecnica: "Arte têxtil estruturada em bastidor de tensão concêntrico. Composição primária em feltragem com agulha sobre tecido plano para criação de relevo e preenchimento. Composição secundária com técnicas mistas, incluindo bordado livre para elementos lineares precisos.",
+            apenasPersonalizado: false,
+            variantes: [
+                { nome: "Bastidor 12cm - Flores", imagem: "https://images.unsplash.com/photo-1605330386221-39665bc839d4?auto=format&fit=crop&w=800&q=80", preco: "R$ 85,00" },
+                { nome: "Bastidor 12cm - Animais", imagem: "https://images.unsplash.com/photo-1620619864275-c941785f818b?auto=format&fit=crop&w=800&q=80", preco: "R$ 85,00" },
+                { nome: "Bastidor 15cm - Estrelado", imagem: "https://images.unsplash.com/photo-1590118314115-b040e5ecda15?auto=format&fit=crop&w=800&q=80", preco: "R$ 110,00" }
+            ]
+        },
+        {
+            id: 3,
+            nome: "Escultura Tridimensional",
+            resumo: "Figuras decorativas estruturadas em lã",
+            descricao: "Esta figura decorativa é esculpida em lã com transição de cores vibrantes e traços suaves, criando uma peça que transmite paz e encantamento. Uma presença lúdica, perfeita para inspirar a imaginação.",
+            tecnica: "Escultura têxtil tridimensional autônoma. Executada por meio de feltragem a seco (needle felting) para compactação mecânica de fibras de lã natural. Modelagem com omissão intencional de traços faciais visando neutralidade expressiva.",
+            apenasPersonalizado: false,
+            imagemExemplo: "https://images.unsplash.com/photo-1610444390022-d04b61b369c0?auto=format&fit=crop&w=800&q=80",
+            variantes: [
+                { nome: "Fada da Natureza (12cm)", preco: "R$ 160,00" },
+                { nome: "Duende do Bosque (18cm)", preco: "R$ 240,00" },
+                { nome: "Guardiã dos Sonhos (25cm)", preco: "R$ 340,00" }
+            ]
+        }
+    ];
 
-  let selected = {};
+    let produtoAtivo = null;
+    let varianteSelecionadaIndex = 0;
 
-  function renderCatalog() {
-    const grid = document.getElementById('catalog-grid');
-    grid.innerHTML = '';
-    produtos.forEach(p => {
-      const mainImg = p.imagens[0];
-      const minPrice = p.variantes[0].preco;
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <div class="product-arrow">&#8599;</div>
-        <img class="product-img" src="${mainImg}" alt="${p.nome}" loading="lazy">
-        <div class="product-info">
-          <div class="product-tag">${p.tag}</div>
-          <div class="product-name">${p.nome}</div>
-          <div class="product-price-hint">A partir de ${minPrice}</div>
-        </div>
-      `;
-      card.onclick = () => openDetail(p.id);
-      grid.appendChild(card);
-    });
-  }
-
-  function openDetail(id) {
-    const p = produtos.find(x => x.id === id);
-    if (!selected[id]) selected[id] = 0;
-    document.getElementById('home-page').style.display = 'none';
-    document.getElementById('detail-page').style.display = 'block';
-    document.getElementById('breadcrumb-name').textContent = p.nome;
-    renderDetail(p);
-    window.scrollTo({ top: 0 });
-  }
-
-  function renderDetail(p) {
-    const idx = selected[p.id] || 0;
-    const mainImgEl = document.getElementById('detail-main-img');
-    const imgSrc = p.id === 2 ? p.imagens[p.variantes[idx].imgIdx ?? idx] : p.imagens[0];
-    mainImgEl.src = imgSrc;
-    mainImgEl.alt = p.nome;
-
-    const thumbsEl = document.getElementById('detail-thumbs');
-    thumbsEl.innerHTML = '';
-    if (p.id === 2) {
-      p.imagens.forEach((img, i) => {
-        const t = document.createElement('img');
-        t.src = img;
-        t.className = 'thumb' + (i === idx ? ' active' : '');
-        t.alt = p.variantes[i].nome;
-        t.onclick = () => { selected[p.id] = i; renderDetail(p); };
-        thumbsEl.appendChild(t);
-      });
+    function getImagemParaVariante(produto, index) {
+        if (produto.id === 2) {
+            return produto.variantes[index].imagem;
+        }
+        return produto.imagemExemplo;
     }
 
-    const variant = p.variantes[idx];
-    const phone = "5531999999999"; // substitua pelo número real
-
-    let buttonsHtml;
-    if (p.apenasPersonalizado) {
-      const msg = encodeURIComponent(`Olá! Gostaria de encomendar uma *Reprodução de Fotografia* no formato ${variant.nome} (${variant.preco}). Podemos conversar sobre o envio da imagem e o prazo?`);
-      buttonsHtml = `<a class="btn btn-whatsapp-main" href="https://wa.me/${phone}?text=${msg}" target="_blank">&#128172; Encomendar com minha foto</a>`;
-    } else {
-      const msgPronto = encodeURIComponent(`Olá! Tenho interesse em adquirir a peça pronta: *${variant.nome}* — ${variant.preco}. Está disponível?`);
-      const msgPersonalizado = encodeURIComponent(`Olá! Me encantei com *${p.nome}*. Gostaria de encomendar uma peça personalizada. Podemos conversar sobre prazos e possibilidades?`);
-      buttonsHtml = `
-        <a class="btn btn-primary" href="https://wa.me/${phone}?text=${msgPronto}" target="_blank">Adquirir esta peça (${variant.preco})</a>
-        <a class="btn btn-whatsapp" href="https://wa.me/${phone}?text=${msgPersonalizado}" target="_blank">&#128172; Encomendar peça personalizada</a>
-      `;
+    function renderCatalogo() {
+        const grid = document.getElementById('catalogo-grid');
+        grid.innerHTML = '';
+        produtos.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'card-catalogo';
+            
+            const urlImagem = prod.id === 2 ? prod.variantes[0].imagem : prod.imagemExemplo;
+            
+            card.innerHTML = `
+                <div class="img-wrapper">
+                    <img src="${urlImagem}" alt="${prod.nome}" class="img-catalogo">
+                </div>
+                <div class="nome-catalogo">${prod.nome}</div>
+                <p>${prod.resumo}</p>
+            `;
+            
+            card.addEventListener('click', () => abrirDetalhes(prod.id));
+            grid.appendChild(card);
+        });
     }
 
-    const variantsHtml = p.variantes.map((v, i) => `
-      <div class="variant-row ${i === idx ? 'selected' : ''}" onclick="selectVariant(${p.id}, ${i})">
-        <span class="variant-name">${v.nome}</span>
-        <span style="display:flex;align-items:center;gap:8px">
-          <span class="variant-price">${v.preco}</span>
-          <span class="variant-check">&#10003;</span>
-        </span>
-      </div>
-    `).join('');
+    function abrirDetalhes(id) {
+        produtoAtivo = produtos.find(p => p.id === id);
+        varianteSelecionadaIndex = 0;
+        renderizarDetalhes();
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('detalhes-page').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
 
-    document.getElementById('detail-info').innerHTML = `
-      <div class="detail-label">${p.tag}</div>
-      <div class="detail-title">${p.nome}</div>
-      <div class="detail-desc">${p.descricao}</div>
-      <div class="technique-block">
-        <div class="technique-label">Técnica</div>
-        <div class="technique-text">${p.tecnica}</div>
-      </div>
-      <div class="detail-divider"></div>
-      <div class="variants-label">${p.apenasPersonalizado ? 'Formato desejado' : 'Opções disponíveis'}</div>
-      <div class="variants-list">${variantsHtml}</div>
-      <div class="actions">${buttonsHtml}</div>
-    `;
-  }
+    function renderizarDetalhes() {
+        const container = document.getElementById('conteudo-detalhes');
+        const produto = produtoAtivo;
+        const varianteAtual = produto.variantes[varianteSelecionadaIndex];
+        const apenasPersonalizado = produto.apenasPersonalizado;
+        const imagemUrl = getImagemParaVariante(produto, varianteSelecionadaIndex);
 
-  function selectVariant(id, idx) {
-    selected[id] = idx;
-    const p = produtos.find(x => x.id === id);
-    renderDetail(p);
-  }
+        container.innerHTML = `
+            <div class="detalhes-grid">
+                <div>
+                    <img src="${imagemUrl}" class="detalhes-imagem" alt="${produto.nome}">
+                </div>
+                <div class="detalhes-info">
+                    <h2>${produto.nome}</h2>
+                    <div class="detalhes-descricao">${produto.descricao}</div>
+                    
+                    <div class="seletor-variantes">
+                        <span class="seletor-label">${apenasPersonalizado ? 'Selecione o formato' : 'Opções disponíveis'}</span>
+                        <div class="opcoes-variantes">
+                            ${produto.variantes.map((v, idx) => `
+                                <div class="opcao-variante ${idx === varianteSelecionadaIndex ? 'selecionada' : ''}" data-idx="${idx}">
+                                    <span class="opcao-nome">${v.nome}</span>
+                                    <span class="opcao-preco">${v.preco}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
 
-  function showHome() {
-    document.getElementById('home-page').style.display = 'block';
-    document.getElementById('detail-page').style.display = 'none';
-    window.scrollTo({ top: 0 });
-  }
+                    <div class="botoes-acao">
+                        ${gerarBotoes(produto, varianteAtual, apenasPersonalizado)}
+                    </div>
 
-  renderCatalog();
+                    <div class="detalhes-tecnica">
+                        <div class="tecnica-titulo">Especificações Técnicas</div>
+                        <div class="tecnica-texto">${produto.tecnica}</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Eventos dos seletores
+        document.querySelectorAll('.opcao-variante').forEach(op => {
+            op.addEventListener('click', function() {
+                varianteSelecionadaIndex = parseInt(this.dataset.idx);
+                renderizarDetalhes();
+            });
+        });
+
+        // Eventos dos botões WhatsApp
+        const telefone = "5513999999999"; // Código de área de Praia Grande/SP ajustado
+        const configBtn = (id, msgFunction) => {
+            const btn = document.getElementById(id);
+            if(btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(msgFunction())}`, '_blank');
+                });
+            }
+        };
+
+        configBtn('btn-personalizado', () => {
+            if (apenasPersonalizado) {
+                return `Olá! Gostaria de encomendar uma reprodução no formato ${varianteAtual.nome} (${varianteAtual.preco}).`;
+            }
+            return `Olá! Gostaria de encomendar uma peça personalizada baseada no modelo ${produto.nome}.`;
+        });
+
+        configBtn('btn-pronto', () => {
+            return `Olá! Tenho interesse em adquirir a peça pronta: ${varianteAtual.nome} - ${varianteAtual.preco}.`;
+        });
+    }
+
+    function gerarBotoes(produto, varianteAtual, apenasPersonalizado) {
+        const iconeWhatsapp = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`;
+        
+        if (apenasPersonalizado) {
+            return `<a href="#" class="btn btn-primario" id="btn-personalizado">Solicitar Encomenda</a>`;
+        } else {
+            return `
+                <a href="#" class="btn btn-primario" id="btn-pronto">Adquirir Peça Pronta (${varianteAtual.preco})</a>
+                <a href="#" class="btn btn-whatsapp" id="btn-personalizado">${iconeWhatsapp} Atendimento para Encomenda</a>
+            `;
+        }
+    }
+
+    function voltarParaHome() {
+        document.getElementById('home-page').style.display = 'block';
+        document.getElementById('detalhes-page').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    document.getElementById('btn-voltar').addEventListener('click', voltarParaHome);
+    document.getElementById('link-home').addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
+    document.getElementById('link-logo').addEventListener('click', (e) => { e.preventDefault(); voltarParaHome(); });
+
+    // Inicialização
+    renderCatalogo();
 </script>
 </body>
 </html>
