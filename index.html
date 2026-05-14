@@ -426,7 +426,7 @@
       const msgPronto = encodeURIComponent(`Olá! Tenho interesse em adquirir a peça pronta: *${variant.nome}* — ${variant.preco}. Está disponível?`);
       const msgPersonalizado = encodeURIComponent(`Olá! Me encantei com *${p.nome}*. Gostaria de encomendar uma peça personalizada. Podemos conversar sobre prazos e possibilidades?`);
       buttonsHtml = `
-        <a class="btn btn-primary" href="https://wa.me/${phone}?text=${msgPronto}" target="_blank">&#128Shopping Adquirir esta peça (${variant.preco})</a>
+        <a class="btn btn-primary" href="https://wa.me/${phone}?text=${msgPronto}" target="_blank">Adquirir esta peça (${variant.preco})</a>
         <a class="btn btn-whatsapp" href="https://wa.me/${phone}?text=${msgPersonalizado}" target="_blank">&#128172; Encomendar peça personalizada</a>
       `;
     }
