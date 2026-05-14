@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Isabela Guerra Nammur | Artesanato têxtil de autoria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* cabeçalho */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0e2d4;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            color: #a55d3a;
+            font-weight: 600;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: #8b7a6b;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #4a3729;
+            margin-left: 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav a:first-child {
+            margin-left: 0;
+        }
+
+        .nav a:hover {
+            color: #b45f3b;
+        }
+
+        /* HERO - AGORA OCUPA ATÉ O FINAL */
+        .hero {
+            background: #f7efe6;
+            margin: 0;
+            padding: 60px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #4e3622;
+        }
+
+        .hero p {
+            margin-top: 12px;
+            color: #6b4f34;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* grade de produtos - agora começa SEM a margem superior grande */
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0 40px;
+        }
+
+        .card-catalogo {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 28px;
+            background: white;
+            overflow: hidden;
+            border: 1px solid #f1e4d8;
+        }
+
+        .card-catalogo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+        }
+
+        .img-catalogo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: #ede3d7;
+            display: block;
+        }
+
+        .nome-catalogo {
+            padding: 20px 16px 24px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #3f2d1c;
+        }
+
+        /* página de detalhes */
+        .detalhes-page {
+            display: none;
+            padding: 40px 0 60px;
+        }
+
+        .detalhes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 20px;
+        }
+
+        .detalhes-imagem {
+            width: 100%;
+            border-radius: 28px;
+            background: #f3e9df;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .detalhes-info h2 {
+            font-size: 2rem;
+            color: #a45e3a;
+            margin-bottom: 16px;
+        }
+
+        .detalhes-descricao {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 24px 0;
+            color: #3a2a1d;
+        }
+
+        .detalhes-tecnica {
+            background: #faf2e9;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 24px 0;
+            border-left: 4px solid #cb7b4a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* seletor de variantes */
+        .seletor-variantes {
+            margin: 20px 0;
+            padding: 16px;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #f0e2d4;
+        }
+
+        .seletor-label {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .opcoes-variantes {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .opcao-variante {
+            background: #f5ede3;
+            padding: 10px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .opcao-variante.selecionada {
+            background: #b5673f;
+            color: white;
+            border-color: #b5673f;
+        }
+
+        /* botoes */
+        .botoes-acao {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whats-personalizado, .btn-comprar-pronto {
+            flex: 1;
+            text-align: center;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-whats-personalizado {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whats-personalizado:hover {
+            background: #1da152;
+        }
+
+        .btn-comprar-pronto {
+            background: #b5673f;
+            color: white;
+        }
+
+        .btn-comprar-pronto:hover {
+            background: #8b4a2c;
+        }
+
+        .btn-whats-apenas {
+            width: 100%;
+            text-align: center;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            display: block;
+            transition: background 0.2s;
+        }
+
+        .btn-whats-apenas:hover {
+            background: #1da152;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 24px;
+            background: none;
+            border: none;
+            color: #a5643f;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-voltar:hover {
+            text-decoration: underline;
+        }
+
+        /* rodapé */
+        .footer {
+            background: #e8dfd4;
+            margin-top: 0;
+            padding: 40px 0 32px;
+            font-size: 0.85rem;
+            color: #4c3a2a;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #7b553b;
+            text-decoration: none;
+        }
+
+        @media (max-width: 750px) {
+            .detalhes-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .botoes-acao {
+                flex-direction: column;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>✨ Isabela Guerra Nammur</h1>
+            <p>Artesanato têxtil de autoria</p>
+        </div>
+        <div class="nav">
+            <a href="#" id="link-home">Início</a>
+            <a href="#">Sobre</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div id="home-page">
+        <!-- Faixa terracota que vai até o final da largura da página -->
+        <div class="hero">
+            <div class="container">
+                <h2>Artesanato que guarda sentimentos</h2>
+                <p>Cada peça carrega uma história, uma técnica e a vontade de transformar o ordinário em poesia tátil.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div id="catalogo-grid" class="grid-catalogo"></div>
+        </div>
+    </div>
+
+    <div id="detalhes-page" class="detalhes-page">
+        <div class="container">
+            <button class="btn-voltar" id="btn-voltar">← Voltar para o acervo</button>
+            <div id="conteudo-detalhes"></div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>📷 Acompanhe o processo criativo no Instagram @isabelaguerranammur</p>
+        <p>💬 Encomendas via WhatsApp | Peças únicas e personalizadas</p>
+    </div>
+</footer>
+
+<script>
+    // ==============================================
+    // PRODUTOS COM AS IMAGENS FORNECIDAS
+    // ==============================================
+    const produtos = [
+        {
+            id: 1,
+            nome: "Reprodução de Fotografia",
+            descricao: "Eternize seus momentos mais importantes. Transformamos fotografias marcantes em peças artesanais exclusivas, traduzindo afeto e memórias em texturas e cores. Uma forma delicada e tangível de manter a essência de suas melhores lembranças sempre presente.",
+            tecnica: "Técnica: Reprodução têxtil por abstração de imagem fotográfica. A execução utiliza feltragem com agulha (needle felting) sobre substrato de algodão cru. Fibras de lã são compactadas para formar silhuetas e blocos de cor correspondentes à fotografia original. Há omissão de traços faciais, priorizando a geometria corporal e o posicionamento espacial para reconhecimento da cena.",
+            apenasPersonalizado: true,
+            imagemExemplo: "https://i.imgur.com/06tCO1P.jpeg",
+            variantes: [
+                { nome: "Formato 15x15 cm (moldura inclusa)", preco: "R$ 120,00" },
+                { nome: "Formato 20x20 cm (moldura inclusa)", preco: "R$ 180,00" },
+                { nome: "Formato 25x25 cm (moldura inclusa)", preco: "R$ 250,00" }
+            ]
+        },
+        {
+            id: 2,
+            nome: "Bastidores Decorativos Lúdicos",
+            descricao: "Decore com afeto e imaginação. Nossos bastidores unem a delicadeza do trabalho manual com temas lúdicos e encantadores. Obras artesanais exclusivas pensadas para criar uma atmosfera de serenidade e ternura, adicionando personalidade e o calor do trabalho feito à mão ao ambiente.",
+            tecnica: "Técnica: Arte têxtil estruturada em bastidor de tensão concêntrico (madeira/bambu). Composição primária em feltragem com agulha sobre tecido plano (algodão cru ou padrão impresso) para criação de relevo e preenchimento. Composição secundária com técnicas mistas: bordado livre para elementos lineares precisos, aplicação de pedrarias e fixação de aviamentos externos (renda). O bastidor atua como tensionador mecânico durante a confecção e como moldura na peça finalizada.",
+            apenasPersonalizado: false,
+            variantes: [
+                { nome: "Bastidor 12cm - Tema Flores", imagem: "https://i.imgur.com/seo49lH.jpeg", preco: "R$ 85,00" },
+                { nome: "Bastidor 12cm - Tema Animais", imagem: "https://i.imgur.com/bsLXrLp.jpeg", preco: "R$ 85,00" },
+                { nome: "Bastidor 15cm - Céu Estrelado", imagem: "https://i.imgur.com/X0zHUVH.jpeg", preco: "R$ 110,00" }
+            ]
+        },
+        {
+            id: 3,
+            nome: "Escultura Têxtil Tridimensional",
+            descricao: "Traga a magia e a delicadeza do trabalho manual para o seu espaço. Esta figura decorativa é esculpida em lã com uma transição de cores vibrantes e traços suaves, criando uma peça que transmite paz e encantamento. Uma presença lúdica e acolhedora, perfeita para inspirar a imaginação e adicionar um toque de poesia a qualquer ambiente.",
+            tecnica: "Técnica: Escultura têxtil tridimensional autónoma. A execução recorre primariamente à técnica de feltragem a seco (needle felting) para a compactação mecânica de fibras de lã natural. O corpo central apresenta uma mescla cromática de fibras (laranja, amarelo e verde-água) com um grau de compactação intermédio, preservando a textura felpuda e orgânica do material. As asas e o cabelo são compostos por mechas de lã penteada (roving) com fixação pontual e baixo nível de fricção.",
+            apenasPersonalizado: false,
+            imagemExemplo: "https://i.imgur.com/x5uXMpr.jpeg",
+            variantes: [
+                { nome: "Pequena (12cm) - Fada da Natureza", preco: "R$ 160,00" },
+                { nome: "Média (18cm) - Duende do Bosque", preco: "R$ 240,00" },
+                { nome: "Grande (25cm) - Guardiã dos Sonhos", preco: "R$ 340,00" }
+            ]
+        }
+    ];
+
+    let produtoAtivo = null;
+    let varianteSelecionadaIndex = 0;
+
+    function getImagemParaVariante(produto, index) {
+        if (produto.id === 2) {
+            return produto.variantes[index].imagem;
+        }
+        return produto.imagemExemplo;
+    }
+
+    function renderCatalogo() {
+        const grid = document.getElementById('catalogo-grid');
+        grid.innerHTML = '';
+        produtos.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'card-catalogo';
+            
+            const img = document.createElement('img');
+            if (prod.id === 2) {
+                img.src = prod.variantes[0].imagem;
+            } else {
+                img.src = prod.imagemExemplo;
+            }
+            img.alt = prod.nome;
+            img.className = 'img-catalogo';
+            
+            const nomeDiv = document.createElement('div');
+            nomeDiv.className = 'nome-catalogo';
+            nomeDiv.innerText = prod.nome;
+            
+            card.appendChild(img);
+            card.appendChild(nomeDiv);
+            card.addEventListener('click', () => abrirDetalhes(prod.id));
+            grid.appendChild(card);
+        });
+    }
+
+    function abrirDetalhes(id) {
+        produtoAtivo = produtos.find(p => p.id === id);
+        varianteSelecionadaIndex = 0;
+        renderizarDetalhes();
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('detalhes-page').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderizarDetalhes() {
+        const container = document.getElementById('conteudo-detalhes');
+        const produto = produtoAtivo;
+        const varianteAtual = produto.variantes[varianteSelecionadaIndex];
+        const apenasPersonalizado = produto.apenasPersonalizado === true;
+        const imagemUrl = getImagemParaVariante(produto, varianteSelecionadaIndex);
+
+        container.innerHTML = `
+            <div class="detalhes-grid">
+                <div>
+                    <img src="${imagemUrl}" class="detalhes-imagem" id="imagem-principal" alt="${varianteAtual.nome}">
+                </div>
+                <div class="detalhes-info">
+                    <h2>${produto.nome}</h2>
+                    <div class="detalhes-descricao">${produto.descricao}</div>
+                    <div class="detalhes-tecnica">🧵 ${produto.tecnica}</div>
+                    
+                    <div class="seletor-variantes">
+                        <div class="seletor-label">🎨 ${apenasPersonalizado ? 'Escolha o formato desejado:' : 'Escolha uma opção disponível:'}</div>
+                        <div class="opcoes-variantes" id="opcoes-variantes">
+                            ${produto.variantes.map((v, idx) => `
+                                <div class="opcao-variante ${idx === varianteSelecionadaIndex ? 'selecionada' : ''}" data-idx="${idx}">
+                                    ${v.nome} - ${v.preco}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="botoes-acao" id="area-botoes">
+                        ${gerarBotoes(produto, varianteAtual, apenasPersonalizado)}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const opcoes = document.querySelectorAll('.opcao-variante');
+        opcoes.forEach(op => {
+            op.addEventListener('click', (e) => {
+                const idx = parseInt(op.dataset.idx);
+                varianteSelecionadaIndex = idx;
+                renderizarDetalhes();
+            });
+        });
+
+        const telefone = "5531999999999";
+        const varianteSelecionada = produto.variantes[varianteSelecionadaIndex];
+        
+        const btnPersonalizado = document.getElementById('btn-personalizado');
+        if (btnPersonalizado) {
+            btnPersonalizado.onclick = (e) => {
+                e.preventDefault();
+                let mensagem = "";
+                if (apenasPersonalizado) {
+                    mensagem = `Olá! Gostaria de encomendar uma REPRODUÇÃO DE FOTOGRAFIA no formato ${varianteSelecionada.nome} (${varianteSelecionada.preco}). Podemos conversar sobre o envio da imagem e o prazo?`;
+                } else {
+                    mensagem = `Olá! Me encantei com a técnica *${produto.nome}*. Gostaria de encomendar uma peça PERSONALIZADA (${produto.tecnica.substring(0, 120)}...). Podemos conversar sobre prazos e possibilidades?`;
+                }
+                window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            };
+        }
+        
+        const btnPronto = document.getElementById('btn-pronto');
+        if (btnPronto) {
+            btnPronto.onclick = (e) => {
+                e.preventDefault();
+                const mensagem = `Olá! Tenho interesse em adquirir a peça que está pronta: *${varianteSelecionada.nome}* - ${varianteSelecionada.preco}. Está disponível?`;
+                window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            };
+        }
+    }
+    
+    function gerarBotoes(produto, varianteAtual, apenasPersonalizado) {
+        if (apenasPersonalizado) {
+            return `
+                <a href="#" class="btn-whats-apenas" id="btn-personalizado">
+                    💬 Quero encomendar esta peça com minha própria foto
+                </a>
+            `;
+        } else {
+            return `
+                <a href="#" class="btn-whats-personalizado" id="btn-personalizado">💬 Quero encomendar uma peça única (personalizada)</a>
+                <a href="#" class="btn-comprar-pronto" id="btn-pronto">🛒 Adquirir esta peça pronta (${varianteAtual.preco})</a>
+            `;
+        }
+    }
+
+    function voltarParaHome() {
+        document.getElementById('home-page').style.display = 'block';
+        document.getElementById('detalhes-page').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('btn-voltar').addEventListener('click', voltarParaHome);
+    document.getElementById('link-home').addEventListener('click', (e) => {
+        e.preventDefault();
+        voltarParaHome();
+    });
+
+    renderCatalogo();
+</script>
+</body>
+</html>
